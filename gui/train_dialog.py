@@ -13,14 +13,14 @@ class TrainDialog(tk.Toplevel):
     def __init__(self, master, env_values):
         super().__init__(master)
         self.title("学習パラメータ設定")
-        self.geometry("520x540")
+        self.geometry("520x680")
         self.resizable(False, False)
         self.env_values = env_values
 
         # ---- 各種設定値（デフォルト） ----
         self.var_device = tk.StringVar(value="GPU")
         self.var_epochs = tk.StringVar(value="150")
-        self.var_batch = tk.StringVar(value="16")
+        self.var_batch = tk.StringVar(value="32")
         self.var_imgsz = tk.StringVar(value="640")
         self.var_lr = tk.StringVar(value="0.003")
         self.var_patience = tk.StringVar(value="20")
@@ -61,11 +61,21 @@ class TrainDialog(tk.Toplevel):
             text=(
                 "【各設定の意味】\n"
                 "Epochs：学習回数。多いほど精度↑（時間↑）\n"
-                "Batch size：一度に処理する画像数。多いほど速い（VRAM消費↑）\n"
-                "Image size：入力画像解像度。640推奨\n"
-                "学習率 lr0：学習の進みやすさ。0.003が安定\n"
-                "Patience：Val loss が改善しない回数で停止\n"
-                "事前学習モデル：YOLOv8 の重み\n"
+                "         目安：CPU → 50〜120、GPU → 100〜300\n"
+                "Batch size：一度に処理する画像数。多いほど高速だが VRAM を多く消費\n"
+                "         VRAM 8GB以下 → 8〜16、 VRAM 12GB以上 → 16〜32推奨\n"
+                "Image size：入力画像解像度。デフォルト640推奨\n"
+                "         より精度重視 → 768〜1024（ただしVRAM消費↑）\n"
+                "学習率 lr0：学習の進みやすさを決める値\n"
+                "         高いと学習が速いが不安定、低いと安定だが時間がかかる\n"
+                "         初心者は 0.003 固定が安全\n"
+                "Patience：Val が改善しない状態が続いたときに学習を早期終了\n"
+                "         過学習の防止・無駄な計算を削減する効果\n"
+                "事前学習モデル（YOLOv8重み）：\n"
+                "         yolov8n.pt = 超小型・高速・精度低め（CPU向け）\n"
+                "         yolov8s.pt = 小型・バランス型\n"
+                "         yolov8m.pt = 中型・GPU向け（推奨）\n"
+                "         yolov8l.pt = 大型・高精度・VRAM大量消費\n"
             ),
             justify="left",
             anchor="w"
