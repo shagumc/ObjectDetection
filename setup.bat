@@ -47,6 +47,10 @@ if %errorlevel% neq 0 (
 
 pip install LabelImg
 
+REM LabelImgはそのままではエラーが出てしまうので、上書きする
+COPY Overwrite\labelImg.py .venv\Lib\site-packages\labelImg\
+COPY Overwrite\canvas.py .venv\Lib\site-packages\libs\
+
 REM GPU使う場合はインストール
 REM pip install torch==2.9.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 
