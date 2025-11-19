@@ -22,6 +22,8 @@ __pycache__/
 
 yolo*
 
-trainingData/
+trainingData/*.png
+trainingData/*.jpg
+trainingData/*.jpeg
 
 modeles/train_result
