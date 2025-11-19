@@ -31,7 +31,7 @@ call .venv\Scripts\activate
 echo [+] requirements.txt をインストールします...
 
 REM ---- パッケージをインストール ----
-pip install --upgrade pip
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 if %errorlevel% neq 0 (
