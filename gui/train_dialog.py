@@ -20,7 +20,7 @@ class TrainDialog(tk.Toplevel):
         # ---- 各種設定値（デフォルト） ----
         self.var_device = tk.StringVar(value="GPU")
         self.var_epochs = tk.StringVar(value="150")
-        self.var_batch = tk.StringVar(value="32")
+        self.var_batch = tk.StringVar(value="16")
         self.var_imgsz = tk.StringVar(value="640")
         self.var_lr = tk.StringVar(value="0.003")
         self.var_patience = tk.StringVar(value="20")
