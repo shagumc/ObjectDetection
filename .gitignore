@@ -1,10 +1,16 @@
 #学習データ
-data/train/images/*
-data/train/labels/*
-data/val/images/*
-data/val/labels/*
-data/test/images/*
-data/test/labels/*
+data/train/images/*.png
+data/val/images/*.png
+data/test/images/*.png
+data/train/images/*.jpg
+data/val/images/*.jpg
+data/test/images/*.jpg
+data/train/images/*.jpeg
+data/val/images/*.jpeg
+data/test/images/*.jpeg
+data/val/labels/*.txt
+data/train/labels/*.txt
+data/test/labels/*.txt
 
 #キャッシュ他
 __pycache__/
